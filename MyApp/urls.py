@@ -13,8 +13,19 @@ urlpatterns = [
     path('address/', views.address, name='address'),
     path('orders/', views.orders, name='orders'),
     path('changepassword/', views.change_password, name='changepassword'),
+    
     path('mobile/', views.mobile, name='mobile'),
     path('mobile/<slug:data>', views.mobile, name='mobiledata'),
+    
+    path('laptop/', views.laptop, name='laptop'),
+    path('laptop/<slug:data>', views.laptop, name='laptopdata'),
+
+    path('topwears/', views.topWear, name='topwears'),
+    path('topwears/<slug:data>', views.topWear, name='topwearsdata'),
+
+    path('bottomwears/', views.bottomWears, name='bottomwears'),
+    path('bottomwears/<slug:data>', views.bottomWears, name='bottomwearsdata'),
+
     path('login/', views.login, name='login'),
     path('registration/', views.customerregistration, name='customerregistration'),
     path('checkout/', views.checkout, name='checkout'),
