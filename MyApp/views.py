@@ -57,7 +57,7 @@ def mobile(request, data=None):
 def laptop(request, data=None):
  if data == None:
   laptops = Product.objects.filter(category='L')
- elif data == 'HP' or data == 'ASUS' or data == 'DELl':
+ elif data == 'HP' or data == 'ASUS' or data == 'DELl' or data == 'Lenovo':
   laptops = Product.objects.filter(category='L').filter(brand=data)
  elif data == 'below':
   laptops = Product.objects.filter(category='L').filter(discounted_price__lt=60000)
