@@ -45,12 +45,7 @@ def orders(request):
     return render(request, 'app/orders.html')
 
 
-def change_password(request):
-    return render(request, 'app/changepassword.html')
-
 # mobile viewport
-
-
 def mobile(request, data=None):
     if data == None:
         mobiles = Product.objects.filter(category='M')
@@ -65,8 +60,6 @@ def mobile(request, data=None):
     return render(request, 'app/mobile.html', {'mobiles': mobiles})
 
 # Laptop viewport
-
-
 def laptop(request, data=None):
     if data == None:
         laptops = Product.objects.filter(category='L')
@@ -105,13 +98,6 @@ def bottomWears(request, data=None):
         bottomWears = Product.objects.filter(
             category='BW').filter(discounted_price__gt=400)
     return render(request, 'app/bottomwear.html', {'bottomWears': bottomWears})
-
-
-def login(request):
-    return render(request, 'app/login.html')
-
-# def customerregistration(request):
-#  return render(request, 'app/customerregistration.html')
 
 
 class CustomerRegistrationView(View):
