@@ -1,7 +1,7 @@
 ## E-Commerce website with Python Django
     E-commerce is now part of our daily life, we use e-commerce websites to order anything and everything. Did you ever wonder if we can develop one on our own?
 
-## Project Prerequisites
+### Project Prerequisites
 **Front-end technologies:**
 - HTML: displays content on web page.
 - CSS: creates beautiful styles.
