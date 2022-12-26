@@ -1,11 +1,13 @@
 from django import forms
 from django.contrib.auth import password_validation
-from django.contrib.auth.forms import (AuthenticationForm, PasswordChangeForm, SetPasswordForm,
-                                       PasswordResetForm, UserCreationForm,
-                                       UsernameField)
+from django.contrib.auth.forms import (AuthenticationForm, PasswordChangeForm,
+                                       PasswordResetForm, SetPasswordForm,
+                                       UserCreationForm, UsernameField)
 from django.contrib.auth.models import User
 from django.utils.translation import gettext
 from django.utils.translation import gettext_lazy as _
+
+from .models import Customer
 
 
 class CustomerRegistrationForm(UserCreationForm):
@@ -84,7 +86,9 @@ class MyPasswordResetForm(PasswordResetForm):
 
 class MySetPasswordForm(SetPasswordForm):
     new_password1 = forms.CharField(
-            label=_('New Password'), strip=False, widget=forms.PasswordInput(attrs={
+            label=_('New Password'),
+            strip=False,
+            widget=forms.PasswordInput(attrs={
                 'autocomplete': 'new-password', 'class': 'form-control'
                 }
             ),
@@ -99,3 +103,16 @@ class MySetPasswordForm(SetPasswordForm):
                 }
             )
         )
+
+
+class CustomerProfileForm(forms.ModelForm):
+    class Meta:
+        model = Customer
+        fields = ['name', 'locality', 'city', 'state', 'zipcode']
+        widgets = {
+                'name': forms.TextInput(attrs={'class': 'form-control'}),
+                'locality': forms.TextInput(attrs={'class': 'form-control'}),
+                'city': forms.TextInput(attrs={'class': 'form-control'}),
+                'state': forms.Select(attrs={'class': 'form-control'}),
+                'zipcode': forms.NumberInput(attrs={'class': 'form-control'})
+            }
